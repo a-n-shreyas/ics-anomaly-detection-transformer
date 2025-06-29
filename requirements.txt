@@ -1,0 +1,33 @@
+# Core scientific and data processing libraries
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+
+# Deep learning frameworks
+torch
+torchvision
+torchaudio
+
+# Transformers (for self-attention models)
+transformers
+
+# Jupyter notebooks (optional, for experimentation)
+notebook
+jupyterlab
+
+# Progress bars and utilities
+tqdm
+
+# For hyperparameter tuning (optional)
+optuna
+
+# Data serialization, saving models
+joblib
+
+# Visualization enhancement
+plotly
+
+# For handling imbalanced datasets (optional)
+imbalanced-learn
