@@ -7,7 +7,7 @@ from .model import AnomalyTransformer
 
 
 def run_training():
-    INPUT_DIM = 19
+    INPUT_DIM = 12
     MODEL_DIM = 64
     NUM_HEADS = 4
     NUM_LAYERS = 3
@@ -31,12 +31,8 @@ def run_training():
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-    model = AnomalyTransformer(
-        input_dim=INPUT_DIM,
-        model_dim=MODEL_DIM,
-        num_heads=NUM_HEADS,
-        num_layers=NUM_LAYERS
-    ).to(device)
+    model = AnomalyTransformer(input_dim=INPUT_DIM, model_dim=MODEL_DIM, num_heads=NUM_HEADS, num_layers=NUM_LAYERS).to(
+        device)
 
     criterion = nn.BCEWithLogitsLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)

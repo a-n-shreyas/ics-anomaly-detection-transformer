@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import math
 
-
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_len=5000):
         super(PositionalEncoding, self).__init__()
@@ -17,21 +16,16 @@ class PositionalEncoding(nn.Module):
         x = x + self.pe[:, :x.size(1), :]
         return x
 
-
 class AnomalyTransformer(nn.Module):
     def __init__(self, input_dim, model_dim, num_heads, num_layers, dropout=0.1):
         super(AnomalyTransformer, self).__init__()
         self.model_dim = model_dim
-
         self.input_projection = nn.Linear(input_dim, model_dim)
         self.pos_encoder = PositionalEncoding(model_dim)
         self.layer_norm = nn.LayerNorm(model_dim)
         self.dropout = nn.Dropout(dropout)
-
-        encoder_layers = nn.TransformerEncoderLayer(d_model=model_dim, nhead=num_heads, dropout=dropout,
-                                                    batch_first=True)
+        encoder_layers = nn.TransformerEncoderLayer(d_model=model_dim, nhead=num_heads, dropout=dropout, batch_first=True)
         self.transformer_encoder = nn.TransformerEncoder(encoder_layers, num_layers=num_layers)
-
         self.output_layer = nn.Linear(model_dim, 1)
 
     def forward(self, src):
@@ -39,9 +33,7 @@ class AnomalyTransformer(nn.Module):
         src = self.pos_encoder(src)
         src = self.layer_norm(src)
         src = self.dropout(src)
-
         output = self.transformer_encoder(src)
         output = output[:, 0, :]
         output = self.output_layer(output)
-
         return output
