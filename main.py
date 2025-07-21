@@ -13,8 +13,8 @@ if __name__ == "__main__":
     if args.action == 'train':
         print("🚀 Starting the training process...")
         run_training()
-        print("✅ Training process finished.")
+        print("Training process finished.")
     elif args.action == 'evaluate':
         print("🚀 Starting the evaluation process...")
         run_evaluation()
-        print("✅ Evaluation process finished.")
+        print("Evaluation process finished.")

@@ -27,7 +27,7 @@ def get_logits(model, data_loader, device):
 def run_evaluation():
     """Finds the best threshold on the validation set and evaluates on the test set."""
     # --- 1. Configuration ---
-    INPUT_DIM = 12  # Make sure this matches your SWaT data
+    INPUT_DIM = 12
     MODEL_DIM = 64
     NUM_HEADS = 4
     NUM_LAYERS = 3
