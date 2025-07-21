@@ -74,6 +74,6 @@ def run_training():
         if avg_val_loss < best_val_loss and avg_val_loss > 0:
             best_val_loss = avg_val_loss
             torch.save(model.state_dict(), os.path.join(models_dir, 'best_model.pth'))
-            print(f"✅ Model saved with new best validation loss: {best_val_loss:.4f}")
+            print(f"Model saved with new best validation loss: {best_val_loss:.4f}")
 
     print("Training complete.")

@@ -46,7 +46,7 @@ def run_evaluation():
 
     model_path = os.path.join('models', 'best_model.pth')
     model.load_state_dict(torch.load(model_path, map_location=device))
-    print("✅ Model loaded successfully.")
+    print("Model loaded successfully.")
 
     # --- 3. Find Best Threshold on VALIDATION Set ---
     data_path = 'data/processed/'
@@ -70,7 +70,7 @@ def run_evaluation():
             best_f1 = f1
             best_threshold = threshold
 
-    print(f"\n✅ Best threshold found on validation set: {best_threshold:.2f} (with F1-Score: {best_f1:.4f})")
+    print(f"\nBest threshold found on validation set: {best_threshold:.2f} (with F1-Score: {best_f1:.4f})")
 
     # --- 4. Evaluate on TEST Set using the Best Threshold ---
     X_test = np.load(os.path.join(data_path, 'X_test.npy'))
@@ -108,4 +108,4 @@ def run_evaluation():
     plt.title(f'Confusion Matrix (Threshold = {best_threshold:.2f})')
 
     plt.savefig('confusion_matrix.png')
-    print("\n✅ Confusion matrix saved to confusion_matrix.png")
+    print("\nConfusion matrix saved to confusion_matrix.png")
