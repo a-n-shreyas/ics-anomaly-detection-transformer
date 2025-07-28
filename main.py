@@ -11,10 +11,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.action == 'train':
-        print("🚀 Starting the training process...")
+        print("Starting the training process...")
         run_training()
         print("Training process finished.")
     elif args.action == 'evaluate':
-        print("🚀 Starting the evaluation process...")
+        print("Starting the evaluation process...")
         run_evaluation()
         print("Evaluation process finished.")

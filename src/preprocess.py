@@ -31,7 +31,7 @@ def create_windows_vectorized(df, window_size=50, stride=1):
     # --- CRUCIAL: This line defines y ---
     y = np.any(label_windows, axis=1).astype(int)
 
-    print(f"✅ Vectorized windows created: {X.shape[0]} sequences of shape {X.shape[1:]}")
+    print(f"Vectorized windows created: {X.shape[0]} sequences of shape {X.shape[1:]}")
 
     return X, y
 def clean_wadi_data(df):
