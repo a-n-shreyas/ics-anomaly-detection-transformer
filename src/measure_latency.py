@@ -1,5 +1,3 @@
-# In src/measure_latency.py
-
 import torch
 import numpy as np
 import os

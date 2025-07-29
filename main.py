@@ -1,4 +1,3 @@
-# In main.py
 import argparse
 from src.train import run_training
 from src.evaluate import run_evaluation
@@ -25,7 +24,7 @@ if __name__ == "__main__":
 
     if 'train' in args.action:
         if args.action == 'train-transformer':
-            print("🚀 Starting the Transformer training process...")
+            print("Starting the Transformer training process...")
             run_training()
         elif args.action == 'train-lstm':
             run_baseline_training(model_type='lstm')
