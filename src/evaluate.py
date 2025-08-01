@@ -82,7 +82,7 @@ def run_evaluation(model_type):
     model_path = os.path.join('models', f'best_model_{model_type}.pth')
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()
-    print(f"✅ {model_name_str} model loaded and in evaluation mode.")
+    print(f" {model_name_str} model loaded and in evaluation mode.")
 
     # --- 4. Get Predictions ---
     all_preds = []

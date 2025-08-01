@@ -4,14 +4,13 @@ from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
 import os
 from .model import AnomalyTransformer
-from imblearn.over_sampling import SMOTE  # <-- Add this import
+from imblearn.over_sampling import SMOTE
 import collections
-
 
 def run_training():
     """Main function to run the Transformer training process."""
     # --- 1. Hyperparameters ---
-    INPUT_DIM = 12
+    INPUT_DIM = 12 # This should match the number of features you saved
     MODEL_DIM = 64
     NUM_HEADS = 4
     NUM_LAYERS = 3
@@ -29,7 +28,7 @@ def run_training():
     X_val = np.load(os.path.join(data_path, 'X_val.npy'))
     y_val = np.load(os.path.join(data_path, 'y_val.npy'))
 
-    # --- NEW: Apply SMOTE to the training data ---
+    # --- Apply SMOTE to the training data ---
     print("Applying SMOTE to the training data...")
     print("Original training set shape:", collections.Counter(y_train))
 
